@@ -1,0 +1,33 @@
+---
+title: "CodeAlong6"
+author: "Joe Walderman"
+date: "11/12/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(palmerpenguins)
+library(ggpubr)
+library(broom)
+```
+
+
+
+```{r}
+set.seed(1414) #pseudorandom sample so that we get all the same samples
+gp_1 <- sample.int(20, size = 15, replace = TRUE)
+
+set.seed(1424)
+gp_2 <- sample.int(30, size = 15, replace = TRUE)
+```
+
+
+```{r}
+my_mwu <- wilcox.test(gp_1, gp_2)
+
+# Note: you will get a warning here that is just a "heads up" - if there are ties in ranks, the p-value is estimated using a normal approximation (and is fine)
+```
+
+
